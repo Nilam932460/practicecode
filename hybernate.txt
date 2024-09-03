@@ -1,0 +1,53 @@
+hybernate
+
+
+Session s = connection.NewHibernateUtil.getSessionFactory().openSession();
+       Transaction tr = s.beginTransaction(); 
+       POJO.Emp10 em = (POJO.Emp10)
+       s.load(POJO.Emp10.class,1);
+       
+      
+       
+       
+       s.delete(em);
+       tr.commit();
+       System.out.println("Successfully record deleted");
+       s.close();
+       tr = null;}
+    
+
+
+
+Session s = connection.NewHibernateUtil.getSessionFactory().openSession();
+       Transaction tr = s.beginTransaction();
+       POJO.Emp10 em = new POJO.Emp10();
+       em.setId(1);
+       em.setName("abc");
+       em.setDept("IT");
+       
+       em.setSalary(200000);
+       
+       s.save(em);
+       tr.commit();
+       System.out.println("Successfully record created");
+       s.close();
+       tr = null;
+
+
+public static void main(String[] args) {
+        Session s = connection.NewHibernateUtil.getSessionFactory().openSession();
+       Transaction tr = s.beginTransaction(); 
+       POJO.Emp10 em = (POJO.Emp10)
+       s.load(POJO.Emp10.class,1);
+       
+       em.setName("Tony");
+       em.setDept("clerk");
+       
+       
+       
+       s.update(em);
+       tr.commit();
+       System.out.println("Successfully record updated");
+       s.close();
+       tr = null;}
+
